@@ -9,7 +9,7 @@ class MenuController extends GetxController {
 
   int get selectedIndex => _selectedIndex.value;
   List<String> get menuItems =>
-      ['Activități', 'Proiecte', 'Produse și Servicii', 'Galerie Foto'];
+      ['Acasă', 'Proiecte și Activități', 'Produse și Servicii', 'Despre Noi'];
   GlobalKey<ScaffoldState> get scaffoldkey => _scaffoldKey;
 
   void openOrCloseDrawer() {

@@ -2,9 +2,10 @@ import 'package:derzelas/homePage/colors.dart';
 import 'package:flutter/material.dart';
 
 class PostCard extends StatelessWidget {
-  const PostCard({
-    Key key,
-  }) : super(key: key);
+  const PostCard(this.imageUrl, this.text);
+
+  final String imageUrl;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +13,22 @@ class PostCard extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: largePadding),
       child: Column(
         children: [
-          Image.network(
-              'http://asociatiaderzelas.ro/wp-content/uploads/Presentation7-960x286.jpg'),
+          new AspectRatio(
+            aspectRatio: 3 / 1,
+            child: new Container(
+              decoration: new BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                  ),
+                  image: new DecorationImage(
+                    fit: BoxFit.fitWidth,
+                    alignment: FractionalOffset.center,
+                    image: new NetworkImage(
+                      imageUrl,
+                    ),
+                  )),
+            ),
+          ),
           Container(
             padding: EdgeInsets.all(largePadding),
             decoration: BoxDecoration(

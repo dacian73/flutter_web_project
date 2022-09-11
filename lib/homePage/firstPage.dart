@@ -1,4 +1,5 @@
 import 'package:derzelas/homePage/colors.dart';
+import 'package:derzelas/homePage/const/texte.dart';
 import 'package:derzelas/logic/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:derzelas/homePage/elements/search.dart';
@@ -6,10 +7,19 @@ import 'package:derzelas/homePage/elements/search.dart';
 import 'elements/categories.dart';
 import 'elements/recent_posts.dart';
 
-class FirstPage extends StatelessWidget {
+class FirstPage extends StatefulWidget {
   const FirstPage({
     Key key,
   }) : super(key: key);
+
+  @override
+  State<FirstPage> createState() => _FirstPageState();
+}
+
+class _FirstPageState extends State<FirstPage> {
+  bool isReadMoreDespreNoi = false;
+  bool isReadMoreProduse = false;
+  bool isReadMoreServicii = false;
 
   @override
   Widget build(BuildContext context) {
@@ -22,90 +32,235 @@ class FirstPage extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(bottom: largePadding),
-                child: Column(
-                  children: [
-                    Image.network(
-                        'http://asociatiaderzelas.ro/wp-content/uploads/Presentation7-960x286.jpg'),
-                    Container(
-                      padding: EdgeInsets.all(largePadding),
-                      decoration: BoxDecoration(
-                          color: albastru_cer,
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(10),
-                          )),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                child: Container(
+                  padding: EdgeInsets.all(largePadding),
+                  decoration: BoxDecoration(
+                      color: albastru_cer,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(10),
+                      )),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
                         children: [
-                          Row(
-                            children: [
-                              Text(
-                                'HOMEPAGE'.toUpperCase(),
-                                style: TextStyle(
-                                    color: negru,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(
-                                width: largePadding,
-                              ),
-                              Text(
-                                text1,
-                                style: Theme.of(context).textTheme.caption,
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: smallPadding),
-                            child: Text(
-                              text2,
-                              style: TextStyle(
-                                  color: negru,
-                                  fontSize: 32,
-                                  height: 1.2,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ),
                           Text(
-                            text3,
-                            style: TextStyle(color: negru, height: 1.5),
-                            maxLines: 4,
+                            'Despre Noi'.toUpperCase(),
+                            style: TextStyle(
+                                color: maro,
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold),
                           ),
                           SizedBox(
-                            height: largePadding,
+                            width: largePadding,
                           ),
-                          Row(
-                            children: [
-                              TextButton(
-                                  onPressed: () {},
-                                  child: Container(
-                                      padding: EdgeInsets.only(
-                                          bottom: smallPadding / 2),
-                                      decoration: BoxDecoration(
-                                          border: Border(
-                                              bottom: BorderSide(
-                                                  color: mov, width: 2))),
-                                      child: Text('Citește mai mult'))),
-                              Spacer(),
-                              IconButton(
-                                icon: Icon(Icons.comment_rounded),
-                                onPressed: () {},
-                              ),
-                              IconButton(
-                                icon: Icon(Icons.share_rounded),
-                                onPressed: () {},
-                              ),
-                            ],
-                          )
+                          Text(
+                            'Descoperă Asociația și alătură-te!',
+                            style: Theme.of(context).textTheme.caption,
+                          ),
                         ],
                       ),
-                    )
-                  ],
+                      Padding(
+                        padding:
+                            const EdgeInsets.symmetric(vertical: smallPadding),
+                        child: Text(
+                          'Asociația Derzelas',
+                          style: TextStyle(
+                              color: negru,
+                              fontSize: 32,
+                              height: 1.2,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                      Text(
+                        (isReadMoreDespreNoi)
+                            ? prezentareNume + '\n \n' + prezentareAsociatie
+                            : prezentareAsociatie,
+                        style: TextStyle(color: negru, height: 1.5),
+                        maxLines: (isReadMoreDespreNoi == false) ? 3 : 200,
+                      ),
+                      SizedBox(
+                        height: largePadding,
+                      ),
+                      Row(
+                        children: [
+                          TextButton(
+                              onPressed: () {
+                                setState(() {
+                                  isReadMoreDespreNoi = !isReadMoreDespreNoi;
+                                });
+                              },
+                              child: Container(
+                                padding:
+                                    EdgeInsets.only(bottom: smallPadding / 2),
+                                decoration: BoxDecoration(
+                                    border: Border(
+                                        bottom:
+                                            BorderSide(color: mov, width: 2))),
+                                child: (isReadMoreDespreNoi == false)
+                                    ? Text('Citește mai mult')
+                                    : Text('Mai puțin'),
+                              )),
+                          Spacer(),
+                          IconButton(
+                            icon: Icon(Icons.comment_rounded),
+                            onPressed: () {},
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.share_rounded),
+                            onPressed: () {},
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
+
+              // Produse și servicii
+              Padding(
+                padding: const EdgeInsets.only(bottom: largePadding),
+                child: Container(
+                  padding: EdgeInsets.all(largePadding),
+                  decoration: BoxDecoration(
+                      color: albastru_cer,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(10),
+                      )),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            'Poduse și Servicii'.toUpperCase(),
+                            style: TextStyle(
+                                color: maro,
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            width: largePadding,
+                          ),
+                          Text(
+                            'Vă oferim o gamă largă de produse și servicii',
+                            style: Theme.of(context).textTheme.caption,
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.symmetric(vertical: smallPadding),
+                        child: Text(
+                          'Produse',
+                          style: TextStyle(
+                              color: negru,
+                              fontSize: 32,
+                              height: 1.2,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                      Text(
+                        produseDescriere,
+                        style: TextStyle(color: negru, height: 1.5),
+                        maxLines: (isReadMoreProduse == false) ? 3 : 100,
+                      ),
+                      SizedBox(
+                        height: largePadding,
+                      ),
+                      Row(
+                        children: [
+                          TextButton(
+                              onPressed: () {
+                                setState(() {
+                                  isReadMoreProduse = !isReadMoreProduse;
+                                });
+                              },
+                              child: Container(
+                                padding:
+                                    EdgeInsets.only(bottom: smallPadding / 2),
+                                decoration: BoxDecoration(
+                                    border: Border(
+                                        bottom:
+                                            BorderSide(color: mov, width: 2))),
+                                child: (isReadMoreProduse == false)
+                                    ? Text(
+                                        'Citește mai mult despre produsele oferite!')
+                                    : Text('Mai puțin!'),
+                              )),
+                          Spacer(),
+                          IconButton(
+                            icon: Icon(Icons.comment_rounded),
+                            onPressed: () {},
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.share_rounded),
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.symmetric(vertical: smallPadding),
+                        child: Text(
+                          'Servicii',
+                          style: TextStyle(
+                              color: negru,
+                              fontSize: 32,
+                              height: 1.2,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                      Text(
+                        produseDescriere,
+                        style: TextStyle(color: negru, height: 1.5),
+                        maxLines: (isReadMoreServicii == false) ? 3 : 100,
+                      ),
+                      SizedBox(
+                        height: largePadding,
+                      ),
+                      Row(
+                        children: [
+                          TextButton(
+                              onPressed: () {
+                                setState(() {
+                                  isReadMoreServicii = !isReadMoreServicii;
+                                });
+                              },
+                              child: Container(
+                                padding:
+                                    EdgeInsets.only(bottom: smallPadding / 2),
+                                decoration: BoxDecoration(
+                                    border: Border(
+                                        bottom:
+                                            BorderSide(color: mov, width: 2))),
+                                child: (isReadMoreServicii == false)
+                                    ? Text(
+                                        'Citește mai mult despre serviciile oferite!')
+                                    : Text('Mai puțin!'),
+                              )),
+                          Spacer(),
+                          IconButton(
+                            icon: Icon(Icons.comment_rounded),
+                            onPressed: () {},
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.share_rounded),
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              // end - Produse si servicii
             ],
           ),
         ),
+
+        // sidebar
         if (!Responsive.isMobile(context))
           SizedBox(
             width: largePadding,
@@ -114,6 +269,37 @@ class FirstPage extends StatelessWidget {
           Expanded(
             child: Column(
               children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: largePadding),
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(largePadding),
+                        decoration: BoxDecoration(
+                            color: piersica,
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(10),
+                                topLeft: Radius.circular(10))),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              autorizatie1,
+                              style: TextStyle(color: negru, height: 1.5),
+                            ),
+                            SizedBox(
+                              height: largePadding,
+                            ),
+                            Text(
+                              autorizatie2,
+                              style: TextStyle(color: negru, height: 1.5),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
                 Search(),
                 SizedBox(height: largePadding),
                 Categories(),

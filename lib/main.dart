@@ -4,7 +4,6 @@ import 'package:derzelas/logic/menu_controler.dart';
 import 'package:flutter/material.dart';
 import 'package:derzelas/homePage/postari.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:derzelas/homePage/elements/header.dart';
 import 'package:derzelas/homePage/firstPage.dart';
 
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Asociația Derzelas',
       theme: ThemeData(
         primarySwatch: Colors.pink,
       ),
