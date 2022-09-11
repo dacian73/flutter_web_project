@@ -16,7 +16,7 @@ class SidebarContainer extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.all(largePadding),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: alb,
         borderRadius: BorderRadius.all(
           Radius.circular(smallPadding),
         ),
@@ -27,7 +27,7 @@ class SidebarContainer extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              color: Colors.black54,
+              color: negru,
               fontWeight: FontWeight.w600,
             ),
           ),

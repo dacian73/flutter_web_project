@@ -17,7 +17,7 @@ class PostCard extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(largePadding),
             decoration: BoxDecoration(
-                color: Color(0xFFAFD2E8),
+                color: albastru_cer,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(10),
                 )),
@@ -29,7 +29,7 @@ class PostCard extends StatelessWidget {
                     Text(
                       'Activități'.toUpperCase(),
                       style: TextStyle(
-                          color: darkTextColor,
+                          color: negru,
                           fontSize: 12,
                           fontWeight: FontWeight.bold),
                     ),
@@ -43,12 +43,11 @@ class PostCard extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding:
-                  const EdgeInsets.symmetric(vertical: smallPadding),
+                  padding: const EdgeInsets.symmetric(vertical: smallPadding),
                   child: Text(
                     text2,
                     style: TextStyle(
-                        color: darkTextColor,
+                        color: negru,
                         fontSize: 32,
                         height: 1.2,
                         fontWeight: FontWeight.w500),
@@ -56,7 +55,7 @@ class PostCard extends StatelessWidget {
                 ),
                 Text(
                   text3,
-                  style: TextStyle(color: darkTextColor, height: 1.5),
+                  style: TextStyle(color: negru, height: 1.5),
                   maxLines: 4,
                 ),
                 SizedBox(
@@ -65,10 +64,22 @@ class PostCard extends StatelessWidget {
                 Row(
                   children: [
                     TextButton(
-                        onPressed: () {}, child: Container(padding: EdgeInsets.only(bottom: smallPadding/2), decoration: BoxDecoration(border: Border(bottom: BorderSide(color: accentColor, width: 2))),child: Text('Citește mai mult'))),
+                        onPressed: () {},
+                        child: Container(
+                            padding: EdgeInsets.only(bottom: smallPadding / 2),
+                            decoration: BoxDecoration(
+                                border: Border(
+                                    bottom: BorderSide(color: mov, width: 2))),
+                            child: Text('Citește mai mult'))),
                     Spacer(),
-                    IconButton(icon: Icon(Icons.comment_rounded), onPressed: (){},),
-                    IconButton(icon: Icon(Icons.share_rounded), onPressed: (){},),
+                    IconButton(
+                      icon: Icon(Icons.comment_rounded),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.share_rounded),
+                      onPressed: () {},
+                    ),
                   ],
                 )
               ],

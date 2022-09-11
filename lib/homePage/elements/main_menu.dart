@@ -9,16 +9,18 @@ class MainMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => Row(
-      children: List.generate(
-          _menuController.menuItems.length,
-              (index) => MenuItem(
-              text: _menuController.menuItems[index],
-              isActive: index == _menuController.selectedIndex,
-              press: () {
-                _menuController.setMenuIndex(index);
-              })),
-    ),);
+    return Obx(
+      () => Row(
+        children: List.generate(
+            _menuController.menuItems.length,
+            (index) => MenuItem(
+                text: _menuController.menuItems[index],
+                isActive: index == _menuController.selectedIndex,
+                press: () {
+                  _menuController.setMenuIndex(index);
+                })),
+      ),
+    );
   }
 }
 
@@ -45,18 +47,19 @@ class _MenuItemState extends State<MenuItem> {
   bool _isHover = false;
 
   Color _borderColor() {
-    if(widget.isActive) {
-      return accentColor;
+    if (widget.isActive) {
+      return mov;
     } else if (!widget.isActive && _isHover) {
-      return accentColor.withOpacity(0.5);
+      return mov.withOpacity(0.5);
     }
     return Colors.transparent;
   }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: widget.press,
-      onHover: (value){
+      onHover: (value) {
         setState(() {
           _isHover = value;
         });
@@ -65,15 +68,13 @@ class _MenuItemState extends State<MenuItem> {
         duration: animateDuration,
         margin: EdgeInsets.symmetric(horizontal: smallPadding),
         decoration: BoxDecoration(
-            border: Border(
-                bottom: BorderSide(
-                    color: _borderColor(),
-                    width: 4))),
+            border:
+                Border(bottom: BorderSide(color: _borderColor(), width: 4))),
         padding: EdgeInsets.symmetric(vertical: smallPadding / 2),
         child: Text(
           widget.text,
           style: TextStyle(
-              color: lightTextColor,
+              color: negru,
               fontWeight: widget.isActive ? FontWeight.w600 : FontWeight.w400),
         ),
       ),

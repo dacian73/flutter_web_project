@@ -50,6 +50,8 @@ flutter:
     - assets/img/logo.png
     - assets/img/fb.png
     - assets/img/contact.png
+    - assets/img/logo_mov.png
+    - assets/img/logo_piersica.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

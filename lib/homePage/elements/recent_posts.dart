@@ -62,7 +62,7 @@ class RecentPostCard extends StatelessWidget {
                 maxLines: 2,
                 style: TextStyle(
                   fontFamily: "Raleway",
-                  color: Colors.black54,
+                  color: negru,
                   fontWeight: FontWeight.bold,
                   height: 1.5,
                 ),

@@ -23,7 +23,7 @@ class Search extends StatelessWidget {
             borderRadius: BorderRadius.all(
               Radius.circular(smallPadding),
             ),
-            borderSide: BorderSide(color: Color(0xFFCCCCCC)),
+            borderSide: BorderSide(color: alb),
           ),
         ),
       ),
