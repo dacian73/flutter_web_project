@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:derzelas/homePage/elements/main_menu.dart';
 import 'package:derzelas/homePage/elements/social.dart';
 import 'package:get/get.dart';
-import 'package:derzelas/homePage/colors.dart';
 
 class Header extends StatelessWidget {
   final MenuController _controller = Get.put(MenuController());

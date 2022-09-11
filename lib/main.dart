@@ -6,6 +6,7 @@ import 'package:derzelas/homePage/postari.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:derzelas/homePage/elements/header.dart';
+import 'package:derzelas/homePage/firstPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,8 +26,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  State createState() => new MyHomePageState();
+}
 
+class MyHomePageState extends State<MyHomePage> {
+  int selected = 0;
   final MenuController _controller = Get.put(MenuController());
 
   @override
@@ -41,8 +46,12 @@ class MyHomePage extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(largePadding),
               constraints: BoxConstraints(maxWidth: maxWidth),
-              child: Postari(),
-            )
+              child: GetX<MenuController>(
+                init: MenuController(),
+                builder: (val) =>
+                    (val.selectedIndex == 0) ? FirstPage() : Postari(),
+              ),
+            ),
           ],
         ),
       ),
