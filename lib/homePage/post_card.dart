@@ -2,8 +2,9 @@ import 'package:derzelas/homePage/colors.dart';
 import 'package:flutter/material.dart';
 
 class PostCard extends StatelessWidget {
-  const PostCard(this.imageUrl, this.text);
+  const PostCard(this.titlu, this.imageUrl, this.text);
 
+  final String titlu;
   final String imageUrl;
   final String text;
 
@@ -60,7 +61,7 @@ class PostCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: smallPadding),
                   child: Text(
-                    text2,
+                    titlu,
                     style: TextStyle(
                         color: negru,
                         fontSize: 32,
@@ -69,7 +70,7 @@ class PostCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  text3,
+                  text,
                   style: TextStyle(color: negru, height: 1.5),
                   maxLines: 4,
                 ),
