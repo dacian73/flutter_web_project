@@ -1,4 +1,4 @@
-import 'package:derzelas/homePage/const/colors.dart';
+import 'package:derzelas/const/colors.dart';
 import 'package:derzelas/general_widgets/post_card.dart';
 import 'package:derzelas/logic/responsive.dart';
 import 'package:flutter/material.dart';

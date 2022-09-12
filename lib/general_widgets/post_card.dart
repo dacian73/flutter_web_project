@@ -1,4 +1,4 @@
-import 'package:derzelas/homePage/const/colors.dart';
+import 'package:derzelas/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
 

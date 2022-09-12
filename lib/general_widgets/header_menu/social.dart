@@ -1,6 +1,6 @@
 import 'package:derzelas/logic/menu_controler.dart';
 import 'package:flutter/material.dart';
-import 'package:derzelas/homePage/const/colors.dart';
+import 'package:derzelas/const/colors.dart';
 import 'dart:html' as html;
 
 class Social extends StatelessWidget {

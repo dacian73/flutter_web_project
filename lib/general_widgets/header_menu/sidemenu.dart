@@ -1,4 +1,4 @@
-import 'package:derzelas/homePage/const/colors.dart';
+import 'package:derzelas/const/colors.dart';
 import 'package:derzelas/general_widgets/categories.dart';
 import 'package:derzelas/general_widgets/recent_posts.dart';
 import 'package:derzelas/general_widgets/search.dart';

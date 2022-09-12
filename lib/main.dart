@@ -1,6 +1,6 @@
 import 'package:derzelas/general_widgets/header_menu/header.dart';
 import 'package:derzelas/general_widgets/header_menu/sidemenu.dart';
-import 'package:derzelas/homePage/const/colors.dart';
+import 'package:derzelas/const/colors.dart';
 import 'package:derzelas/logic/menu_controler.dart';
 import 'package:flutter/material.dart';
 import 'package:derzelas/activitati_proiecte/postari.dart';

@@ -1,10 +1,10 @@
-import 'package:derzelas/general_widgets/social.dart';
-import 'package:derzelas/homePage/const/colors.dart';
+import 'package:derzelas/general_widgets/header_menu/social.dart';
+import 'package:derzelas/const/colors.dart';
 import 'package:derzelas/const/texte.dart';
 import 'package:derzelas/logic/menu_controler.dart';
 import 'package:derzelas/logic/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:derzelas/general_widgets/main_menu.dart';
+import 'package:derzelas/general_widgets/header_menu/main_menu.dart';
 import 'package:get/get.dart';
 
 class Header extends StatelessWidget {
