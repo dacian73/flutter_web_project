@@ -1,12 +1,14 @@
-import 'package:derzelas/homePage/colors.dart';
+import 'package:derzelas/homePage/const/colors.dart';
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
 
 class PostCard extends StatelessWidget {
-  const PostCard(this.titlu, this.imageUrl, this.text);
+  const PostCard(this.titlu, this.imageUrl, this.text, this.link);
 
   final String titlu;
   final String imageUrl;
   final String text;
+  final String link;
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +82,9 @@ class PostCard extends StatelessWidget {
                 Row(
                   children: [
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          html.window.open(link, '_blank');
+                        },
                         child: Container(
                             padding: EdgeInsets.only(bottom: smallPadding / 2),
                             decoration: BoxDecoration(

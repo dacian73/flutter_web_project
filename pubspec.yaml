@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   get:
+  
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -52,6 +53,7 @@ flutter:
     - assets/img/contact.png
     - assets/img/logo_mov.png
     - assets/img/logo_piersica.png
+    - assets/img/locatie.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

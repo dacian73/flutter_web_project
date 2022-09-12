@@ -1,4 +1,4 @@
-import 'package:derzelas/homePage/colors.dart';
+import 'package:derzelas/homePage/const/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'sidebarContainer.dart';
@@ -50,7 +50,7 @@ class Category extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: smallPadding/2),
+      padding: const EdgeInsets.symmetric(vertical: smallPadding / 2),
       child: TextButton(
         onPressed: () {},
         child: Text.rich(

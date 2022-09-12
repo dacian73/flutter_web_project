@@ -1,7 +1,7 @@
-import 'package:derzelas/homePage/colors.dart';
-import 'package:derzelas/homePage/elements/categories.dart';
-import 'package:derzelas/homePage/elements/recent_posts.dart';
-import 'package:derzelas/homePage/elements/search.dart';
+import 'package:derzelas/homePage/const/colors.dart';
+import 'package:derzelas/general_widgets/categories.dart';
+import 'package:derzelas/general_widgets/recent_posts.dart';
+import 'package:derzelas/general_widgets/search.dart';
 import 'package:derzelas/logic/menu_controler.dart';
 import 'package:derzelas/logic/responsive.dart';
 import 'package:flutter/material.dart';

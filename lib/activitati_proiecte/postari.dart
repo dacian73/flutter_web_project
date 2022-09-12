@@ -1,12 +1,12 @@
-import 'package:derzelas/homePage/colors.dart';
-import 'package:derzelas/homePage/post_card.dart';
+import 'package:derzelas/homePage/const/colors.dart';
+import 'package:derzelas/general_widgets/post_card.dart';
 import 'package:derzelas/logic/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:derzelas/homePage/elements/search.dart';
+import 'package:derzelas/general_widgets/search.dart';
 
-import '../postari/postari_data.dart';
-import 'elements/categories.dart';
-import 'elements/recent_posts.dart';
+import 'package:derzelas/activitati_proiecte/postari/postari_data.dart';
+import '../general_widgets/categories.dart';
+import '../general_widgets/recent_posts.dart';
 
 class Postari extends StatelessWidget {
   const Postari({
@@ -25,8 +25,8 @@ class Postari extends StatelessWidget {
               shrinkWrap: true,
               itemCount: postari.length,
               itemBuilder: (context, index) {
-                return PostCard(
-                    postari[index][0], postari[index][1], postari[index][2]);
+                return PostCard(postari[index][0], postari[index][1],
+                    postari[index][2], postari[index][3]);
               },
             ),
           ),

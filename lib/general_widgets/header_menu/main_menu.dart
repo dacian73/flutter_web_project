@@ -1,6 +1,6 @@
 import 'package:derzelas/logic/menu_controler.dart';
 import 'package:flutter/material.dart';
-import 'package:derzelas/homePage/colors.dart';
+import 'package:derzelas/homePage/const/colors.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:get/instance_manager.dart';
 

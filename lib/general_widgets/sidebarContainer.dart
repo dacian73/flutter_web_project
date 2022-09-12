@@ -1,4 +1,4 @@
-import 'package:derzelas/homePage/colors.dart';
+import 'package:derzelas/homePage/const/colors.dart';
 import 'package:flutter/material.dart';
 
 class SidebarContainer extends StatelessWidget {
