@@ -17,7 +17,7 @@ class ProduseServicii extends StatelessWidget {
       children: [
         Expanded(
           flex: 2,
-          child: Container(child: Text('Despre noi')),
+          child: Container(child: Text('Produse si Servicii')),
         ),
         if (!Responsive.isMobile(context))
           SizedBox(
