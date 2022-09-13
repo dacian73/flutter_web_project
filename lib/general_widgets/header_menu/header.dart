@@ -6,6 +6,8 @@ import 'package:derzelas/logic/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:derzelas/general_widgets/header_menu/main_menu.dart';
 import 'package:get/get.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Header extends StatelessWidget {
   final MenuController _controller = Get.put(MenuController());
@@ -15,7 +17,7 @@ class Header extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: (Responsive.isDesktop(context)) ? 350 : 150,
-      color: piersica,
+      color: mov,
       child: SafeArea(
         child: Column(
           children: [
@@ -30,7 +32,53 @@ class Header extends StatelessWidget {
                           _controller.openOrCloseDrawer();
                         },
                         icon: Icon(Icons.menu)),
-                  Image.asset('assets/img/logo_piersica.png'),
+                  Row(
+                    children: [
+                      Container(
+                        height: 100,
+                        width: 100,
+                        child: SvgPicture.asset('assets/img/logo.svg',
+                            color: turcoaz, semanticsLabel: 'Derzelas Logo'),
+                      ),
+                      (Responsive.isDesktop(context))
+                          ? SizedBox(
+                              width: 8,
+                            )
+                          : null,
+                      (Responsive.isDesktop(context))
+                          ? Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      'D',
+                                      style: GoogleFonts.cinzel(
+                                          textStyle: TextStyle(
+                                        color: turcoaz,
+                                        fontSize: 38,
+                                      )),
+                                    ),
+                                    Text(
+                                      'ERZELAS',
+                                      style: GoogleFonts.cinzel(
+                                          textStyle: TextStyle(
+                                              color: turcoaz, fontSize: 28)),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  'DARE TO CARE',
+                                  style: GoogleFonts.cinzel(
+                                      textStyle: TextStyle(
+                                          color: turcoaz,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500)),
+                                ),
+                              ],
+                            )
+                          : null,
+                    ],
+                  ),
                   Spacer(),
                   if (Responsive.isDesktop(context)) MainMenu(),
                   Spacer(),

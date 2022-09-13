@@ -1,13 +1,21 @@
+import 'package:derzelas/despre_noi/despre_noi.dart';
 import 'package:derzelas/general_widgets/header_menu/header.dart';
 import 'package:derzelas/general_widgets/header_menu/sidemenu.dart';
 import 'package:derzelas/const/colors.dart';
 import 'package:derzelas/logic/menu_controler.dart';
+import 'package:derzelas/produse_servicii/produse_servicii.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:derzelas/activitati_proiecte/postari.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:derzelas/homePage/firstPage.dart';
 
 void main() {
+  LicenseRegistry.addLicense(() async* {
+    final license = await rootBundle.loadString('google_fonts/OFL.txt');
+    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
+  });
   runApp(MyApp());
 }
 
@@ -47,8 +55,15 @@ class MyHomePageState extends State<MyHomePage> {
               constraints: BoxConstraints(maxWidth: maxWidth),
               child: GetX<MenuController>(
                 init: MenuController(),
-                builder: (val) =>
-                    (val.selectedIndex == 0) ? FirstPage() : Postari(),
+                builder: (val) => (val.selectedIndex == 0)
+                    ? FirstPage()
+                    : (val.selectedIndex == 1)
+                        ? Postari()
+                        : (val.selectedIndex == 2)
+                            ? ProduseServicii()
+                            : (val.selectedIndex == 3)
+                                ? DespreNoi()
+                                : FirstPage(),
               ),
             ),
           ],
