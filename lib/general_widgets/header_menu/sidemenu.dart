@@ -74,7 +74,7 @@ class DrawerItem extends StatelessWidget {
         onTap: press,
         title: Text(
           title,
-          style: TextStyle(color: negru),
+          style: TextStyle(color: piersica),
         ),
       ),
     );

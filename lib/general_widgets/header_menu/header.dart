@@ -38,45 +38,43 @@ class Header extends StatelessWidget {
                         height: 100,
                         width: 100,
                         child: SvgPicture.asset('assets/img/logo.svg',
-                            color: turcoaz, semanticsLabel: 'Derzelas Logo'),
+                            semanticsLabel: 'Derzelas Logo'),
                       ),
-                      (Responsive.isDesktop(context))
-                          ? SizedBox(
-                              width: 8,
-                            )
-                          : null,
-                      (Responsive.isDesktop(context))
-                          ? Column(
+                      if (Responsive.isDesktop(context))
+                        SizedBox(
+                          width: 8,
+                        ),
+                      if (Responsive.isDesktop(context))
+                        Column(
+                          children: [
+                            Row(
                               children: [
-                                Row(
-                                  children: [
-                                    Text(
-                                      'D',
-                                      style: GoogleFonts.cinzel(
-                                          textStyle: TextStyle(
-                                        color: turcoaz,
-                                        fontSize: 38,
-                                      )),
-                                    ),
-                                    Text(
-                                      'ERZELAS',
-                                      style: GoogleFonts.cinzel(
-                                          textStyle: TextStyle(
-                                              color: turcoaz, fontSize: 28)),
-                                    ),
-                                  ],
-                                ),
                                 Text(
-                                  'DARE TO CARE',
+                                  'D',
                                   style: GoogleFonts.cinzel(
                                       textStyle: TextStyle(
-                                          color: turcoaz,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500)),
+                                    color: turcoaz,
+                                    fontSize: 38,
+                                  )),
+                                ),
+                                Text(
+                                  'ERZELAS',
+                                  style: GoogleFonts.cinzel(
+                                      textStyle: TextStyle(
+                                          color: turcoaz, fontSize: 28)),
                                 ),
                               ],
-                            )
-                          : null,
+                            ),
+                            Text(
+                              'DARE TO CARE',
+                              style: GoogleFonts.cinzel(
+                                  textStyle: TextStyle(
+                                      color: turcoaz,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500)),
+                            ),
+                          ],
+                        ),
                     ],
                   ),
                   Spacer(),
@@ -105,10 +103,20 @@ class Header extends StatelessWidget {
                           0, largePadding, largePadding, smallPadding),
                       child: ElevatedButton(
                         onPressed: () {},
-                        child: Text('Îndrăznește și tu!'),
+                        child: Text(
+                          'Îndrăznește și tu!',
+                          style: TextStyle(
+                              color: mov,
+                              fontWeight: FontWeight.w900,
+                              fontSize: 18),
+                        ),
                         style: TextButton.styleFrom(
-                            padding: EdgeInsets.all(largePadding),
-                            backgroundColor: roz),
+                          shadowColor: albastru,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: smallPadding, vertical: largePadding),
+                          backgroundColor: turcoaz,
+                          elevation: 10,
+                        ),
                       ),
                     ),
                   ),
@@ -133,7 +141,7 @@ class Header extends StatelessWidget {
               largePadding, largePadding, 0, smallPadding),
           child: Text(
             prezentareAsociatieFormatata,
-            style: TextStyle(color: negru, fontSize: 16, height: 1.5),
+            style: TextStyle(color: piersica, fontSize: 16, height: 1.5),
             textAlign: TextAlign.center,
           ),
         ),
@@ -177,7 +185,7 @@ class Header extends StatelessWidget {
               largePadding, largePadding, smallPadding, smallPadding),
           child: Text(
             misiuneFormatata,
-            style: TextStyle(color: negru, fontSize: 16, height: 1.5),
+            style: TextStyle(color: piersica, fontSize: 16, height: 1.5),
             textAlign: TextAlign.center,
           ),
         ),
