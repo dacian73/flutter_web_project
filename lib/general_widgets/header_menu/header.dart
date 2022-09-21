@@ -38,7 +38,7 @@ class Header extends StatelessWidget {
                         height: 100,
                         width: 100,
                         child: SvgPicture.asset('assets/img/logo.svg',
-                            semanticsLabel: 'Derzelas Logo'),
+                            color: turcoaz, semanticsLabel: 'Derzelas Logo'),
                       ),
                       if (Responsive.isDesktop(context))
                         SizedBox(
@@ -92,8 +92,22 @@ class Header extends StatelessWidget {
                     child: GetX<MenuController>(
                       init: MenuController(),
                       builder: (val) => (val.selectedIndex == 0)
-                          ? MainHeaderTextFirstPage()
-                          : MainHeaderTextActivitatiProiecte(),
+                          ? MainHeaderTextFirstPage(
+                              'Îndrăznim pentru că ne pasă!',
+                              prezentareAsociatieFormatata,
+                              true)
+                          : (val.selectedIndex == 1)
+                              ? MainHeaderTextFirstPage(
+                                  'Activități și Proiecte!',
+                                  misiuneFormatata,
+                                  true)
+                              : (val.selectedIndex == 2)
+                                  ? MainHeaderTextFirstPage(
+                                      'Activități și Proiecte!',
+                                      misiuneFormatata,
+                                      true)
+                                  : MainHeaderTextFirstPage('Despre Noi',
+                                      despreNoiPrezentareFormatata, false),
                     ),
                   ),
                   Expanded(
@@ -128,11 +142,11 @@ class Header extends StatelessWidget {
     );
   }
 
-  MainHeaderTextFirstPage() {
+  MainHeaderTextFirstPage(String titlu, text, bool cuButon) {
     return Column(
       children: [
         Text(
-          'Îndrăznim pentru că ne pasă!',
+          titlu,
           style: TextStyle(
               fontSize: 32, fontWeight: FontWeight.bold, color: turcoaz),
         ),
@@ -140,78 +154,35 @@ class Header extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(
               largePadding, largePadding, 0, smallPadding),
           child: Text(
-            prezentareAsociatieFormatata,
+            text,
             style: TextStyle(color: piersica, fontSize: 16, height: 1.5),
             textAlign: TextAlign.center,
           ),
         ),
-        FittedBox(
-          child: TextButton(
-            onPressed: () {},
-            child: Row(
-              children: [
-                Text(
-                  'Despre noi',
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: turcoaz),
-                ),
-                SizedBox(
-                  width: smallPadding,
-                ),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  color: alb,
-                )
-              ],
+        if (cuButon)
+          FittedBox(
+            child: TextButton(
+              onPressed: () {},
+              child: Row(
+                children: [
+                  Text(
+                    'Despre noi',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: turcoaz),
+                  ),
+                  SizedBox(
+                    width: smallPadding,
+                  ),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    color: alb,
+                  )
+                ],
+              ),
             ),
           ),
-        ),
-      ],
-    );
-  }
-
-  MainHeaderTextActivitatiProiecte() {
-    return Column(
-      children: [
-        Text(
-          'Activități și Proiecte',
-          style: TextStyle(
-              fontSize: 32, fontWeight: FontWeight.bold, color: turcoaz),
-        ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(
-              largePadding, largePadding, smallPadding, smallPadding),
-          child: Text(
-            misiuneFormatata,
-            style: TextStyle(color: piersica, fontSize: 16, height: 1.5),
-            textAlign: TextAlign.center,
-          ),
-        ),
-        FittedBox(
-          child: TextButton(
-            onPressed: () {},
-            child: Row(
-              children: [
-                Text(
-                  'Despre noi',
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: turcoaz),
-                ),
-                SizedBox(
-                  width: smallPadding,
-                ),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  color: alb,
-                )
-              ],
-            ),
-          ),
-        ),
       ],
     );
   }

@@ -19,6 +19,8 @@ const prezentareNumeFormatata =
     'Derzelas este un zeu dac al sănătăţii şi al vitalităţii spirituale umane, supranumit şi ”Zeul cel Mare”.\n Simbolistica prezenţa în denumirea asociaţiei denotă grijă asupra omului, \n nucleul în jurul căruia ar trebui să se contureze toate activităţile societăţii în care trăim.';
 const prezentareAsociatieFormatata =
     'Asociația Derzelas a înființat puncte de lucru unde desfășoară activițăți de producție și prestări de servicii \nîn vederea realizării de produse și servicii cu participarea și prin propria activitate \na persoanei cu handicap angajate în cadrul unității protejate.';
+const despreNoiPrezentareFormatata =
+    'Asociaţia Derzelas funcţionează că persoană juridică de drept privat de naţionalitate română, \nfără scop patrimonial şi apolitică, prin încheierea civilă nr. 7268/ CC/ 21.09.2012 \npronunţată de Judecătoria Cluj-Napoca în dosar nr. 20548/211/2012. \nAsociaţia Derzelas este o asociaţie non-guvernamentală, \nnon-profit cu beneficiu public care funcţionează în baza legii 448/2006 republicată.';
 const misiuneViziuneObiectiveTitlu = 'Misiune, viziune, obiective';
 const misiuneTitlu = 'Misiune';
 const viziuneTitlu = 'Viziune';
