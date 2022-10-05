@@ -112,27 +112,7 @@ class Header extends StatelessWidget {
                   ),
                   Expanded(
                     flex: 1,
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(
-                          0, largePadding, largePadding, smallPadding),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Îndrăznește și tu!',
-                          style: TextStyle(
-                              color: mov,
-                              fontWeight: FontWeight.w900,
-                              fontSize: 18),
-                        ),
-                        style: TextButton.styleFrom(
-                          shadowColor: albastru,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: smallPadding, vertical: largePadding),
-                          backgroundColor: turcoaz,
-                          elevation: 10,
-                        ),
-                      ),
-                    ),
+                    child: IndraznesteButton(),
                   ),
                 ],
               ),
@@ -184,6 +164,25 @@ class Header extends StatelessWidget {
             ),
           ),
       ],
+    );
+  }
+
+  IndraznesteButton() {
+    return Container(
+      padding: EdgeInsets.fromLTRB(0, largePadding, largePadding, smallPadding),
+      child: FloatingActionButton(
+        hoverColor: piersica,
+        splashColor: albastru_cer,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(15.0))),
+        onPressed: () {},
+        child: Text(
+          'Îndrăznește și tu!',
+          style:
+              TextStyle(color: mov, fontWeight: FontWeight.w900, fontSize: 18),
+        ),
+        backgroundColor: turcoaz,
+      ),
     );
   }
 }

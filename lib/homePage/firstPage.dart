@@ -1,4 +1,5 @@
 import 'package:derzelas/general_widgets/categories.dart';
+import 'package:derzelas/general_widgets/info_card.dart';
 import 'package:derzelas/general_widgets/recent_posts.dart';
 import 'package:derzelas/general_widgets/search.dart';
 import 'package:derzelas/const/colors.dart';
@@ -29,6 +30,15 @@ class _FirstPageState extends State<FirstPage> {
           flex: 2,
           child: Column(
             children: [
+              InfoCard(
+                  'Anunț',
+                  null,
+                  'Momentat, împrospătăm designul acestui website. Ne pare rău pentru orice inconveniențe și vă mulțumim pentru înțelegere!',
+                  false,
+                  10,
+                  'Anunț',
+                  'Website în lucru',
+                  false),
               Padding(
                 padding: const EdgeInsets.only(bottom: largePadding),
                 child: Container(

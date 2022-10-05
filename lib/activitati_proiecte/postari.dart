@@ -25,8 +25,13 @@ class Postari extends StatelessWidget {
               shrinkWrap: true,
               itemCount: postari.length,
               itemBuilder: (context, index) {
-                return PostCard(postari[index][0], postari[index][1],
-                    postari[index][2], postari[index][3]);
+                return PostCard(
+                    postari[index][0],
+                    postari[index][1],
+                    postari[index][2],
+                    postari[index][3],
+                    postari[index][4],
+                    postari[index][5]);
               },
             ),
           ),

@@ -1,4 +1,7 @@
 import 'package:derzelas/const/colors.dart';
+import 'package:derzelas/const/texte.dart';
+import 'package:derzelas/general_widgets/info_card.dart';
+import 'package:derzelas/general_widgets/post_card.dart';
 import 'package:derzelas/logic/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:derzelas/general_widgets/search.dart';
@@ -17,7 +20,23 @@ class ProduseServicii extends StatelessWidget {
       children: [
         Expanded(
           flex: 2,
-          child: Container(child: Text('Produse si Servicii')),
+          child: Column(
+            children: [
+              Container(
+                child: InfoCard('Produse și Servicii', null,
+                    prezentarePuncteLucru, false, 10, null, null, false),
+              ),
+              ListView(
+                shrinkWrap: true,
+                children: [
+                  InfoCard('Produse', null, produseDescriere, true, 3, null,
+                      null, true),
+                  InfoCard('Servicii', null, serviciiDescriere, true, 3, null,
+                      null, true)
+                ],
+              ),
+            ],
+          ),
         ),
         if (!Responsive.isMobile(context))
           SizedBox(

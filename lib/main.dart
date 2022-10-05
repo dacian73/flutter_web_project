@@ -44,6 +44,7 @@ class MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: turcoaz,
       key: _controller.scaffoldkey,
       drawer: SideMenu(),
       body: SingleChildScrollView(
