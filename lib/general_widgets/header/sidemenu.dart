@@ -5,6 +5,7 @@ import 'package:derzelas/general_widgets/search.dart';
 import 'package:derzelas/logic/menu_controler.dart';
 import 'package:derzelas/logic/responsive.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class SideMenu extends StatelessWidget {
@@ -20,7 +21,8 @@ class SideMenu extends StatelessWidget {
               DrawerHeader(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: largePadding),
-                  child: Image.asset('assets/img/logo.png'),
+                  child: SvgPicture.asset('assets/img/logo.svg',
+                      color: turcoaz, semanticsLabel: 'Derzelas Logo'),
                 ),
               ),
               ...List.generate(

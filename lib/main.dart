@@ -1,6 +1,6 @@
 import 'package:derzelas/despre_noi/despre_noi.dart';
-import 'package:derzelas/general_widgets/header_menu/header.dart';
-import 'package:derzelas/general_widgets/header_menu/sidemenu.dart';
+import 'package:derzelas/general_widgets/header/header.dart';
+import 'package:derzelas/general_widgets/header/sidemenu.dart';
 import 'package:derzelas/const/colors.dart';
 import 'package:derzelas/logic/menu_controler.dart';
 import 'package:derzelas/produse_servicii/produse_servicii.dart';
@@ -10,6 +10,8 @@ import 'package:derzelas/activitati_proiecte/postari.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:derzelas/homePage/firstPage.dart';
+
+import 'general_widgets/footer.dart';
 
 void main() {
   LicenseRegistry.addLicense(() async* {
@@ -44,7 +46,7 @@ class MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: turcoaz,
+      backgroundColor: galben,
       key: _controller.scaffoldkey,
       drawer: SideMenu(),
       body: SingleChildScrollView(
@@ -67,6 +69,7 @@ class MyHomePageState extends State<MyHomePage> {
                                 : FirstPage(),
               ),
             ),
+            Footer(),
           ],
         ),
       ),

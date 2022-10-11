@@ -48,9 +48,9 @@ class _MenuItemState extends State<MenuItem> {
 
   Color _borderColor() {
     if (widget.isActive) {
-      return piersica;
+      return turcoaz;
     } else if (!widget.isActive && _isHover) {
-      return piersica.withOpacity(0.5);
+      return turcoaz.withOpacity(0.5);
     }
     return Colors.transparent;
   }
@@ -74,7 +74,8 @@ class _MenuItemState extends State<MenuItem> {
         child: Text(
           widget.text,
           style: TextStyle(
-              color: piersica,
+              fontSize: 20,
+              color: turcoaz,
               fontWeight: widget.isActive ? FontWeight.w600 : FontWeight.w400),
         ),
       ),
