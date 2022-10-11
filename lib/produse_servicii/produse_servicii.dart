@@ -10,7 +10,7 @@ import '../general_widgets/recent_posts.dart';
 
 class ProduseServicii extends StatelessWidget {
   const ProduseServicii({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

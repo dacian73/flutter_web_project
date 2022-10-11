@@ -7,7 +7,7 @@ import '../general_widgets/recent_posts.dart';
 
 class DespreNoi extends StatelessWidget {
   const DespreNoi({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

@@ -1,3 +1,4 @@
+import 'package:derzelas/admin/main_admin.dart';
 import 'package:derzelas/general_widgets/header/social.dart';
 import 'package:derzelas/const/colors.dart';
 import 'package:derzelas/const/texte.dart';
@@ -9,7 +10,8 @@ import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:html' as html;
-import 'package:derzelas/admin/login.dart';
+
+import '../admin/homepage.dart';
 
 class Footer extends StatelessWidget {
   final MenuController _controller = Get.put(MenuController());
@@ -45,7 +47,7 @@ class Footer extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
+                  MaterialPageRoute(builder: (context) => MainAdmin()),
                 );
               },
             )

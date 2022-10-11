@@ -5,7 +5,7 @@ import 'sidebarContainer.dart';
 
 class Categories extends StatelessWidget {
   const Categories({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -41,10 +41,10 @@ class Category extends StatelessWidget {
   final int numOfItems;
   final VoidCallback press;
   const Category({
-    Key key,
-    @required this.title,
-    @required this.numOfItems,
-    @required this.press,
+    Key? key,
+    required this.title,
+    required this.numOfItems,
+    required this.press,
   }) : super(key: key);
 
   @override

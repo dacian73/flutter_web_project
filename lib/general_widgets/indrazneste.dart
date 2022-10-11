@@ -7,7 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class Indrazneste extends StatefulWidget {
   const Indrazneste({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

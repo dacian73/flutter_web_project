@@ -26,10 +26,10 @@ class MainMenu extends StatelessWidget {
 
 class MenuItem extends StatefulWidget {
   const MenuItem({
-    Key key,
-    this.isActive,
-    this.text,
-    this.press,
+    Key? key,
+    required this.isActive,
+    required this.text,
+    required this.press,
   }) : super(key: key);
 
   @required

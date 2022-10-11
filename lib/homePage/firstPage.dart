@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

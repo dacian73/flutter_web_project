@@ -1,16 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:derzelas/admin/firestore_crud.dart';
 import 'package:derzelas/general_widgets/header/social.dart';
 import 'package:derzelas/const/colors.dart';
 import 'package:derzelas/const/texte.dart';
 import 'package:derzelas/general_widgets/indrazneste.dart';
 import 'package:derzelas/logic/menu_controler.dart';
 import 'package:derzelas/logic/responsive.dart';
-import 'package:derzelas/logic/storage_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:derzelas/general_widgets/header/main_menu.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Header extends StatefulWidget {
   @override
@@ -19,19 +19,6 @@ class Header extends StatefulWidget {
 
 class _HeaderState extends State<Header> {
   final MenuController _controller = Get.put(MenuController());
-  SharedPreferences preferences;
-
-  @override
-  void initState() {
-    super.initState();
-    initializePreference().whenComplete(() {
-      setState(() {});
-    });
-  }
-
-  Future<void> initializePreference() async {
-    this.preferences = await SharedPreferences.getInstance();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -118,24 +105,14 @@ class _HeaderState extends State<Header> {
               Expanded(
                 flex: 4,
                 child: GetX<MenuController>(
-                  init: MenuController(),
-                  builder: (val) => (val.selectedIndex == 0)
-                      ? MainHeaderTextFirstPage(
-                          this.preferences?.getString("titlu") ??
-                              'Îndrăznim pentru că ne pasă!',
-                          prezentareAsociatieFormatata,
-                          true)
-                      : (val.selectedIndex == 1)
-                          ? MainHeaderTextFirstPage(
-                              'Activități și Proiecte!', misiuneFormatata, true)
-                          : (val.selectedIndex == 2)
-                              ? MainHeaderTextFirstPage(
-                                  'Activități și Proiecte!',
-                                  misiuneFormatata,
-                                  true)
-                              : MainHeaderTextFirstPage('Despre Noi',
-                                  despreNoiPrezentareFormatata, false),
-                ),
+                    init: MenuController(),
+                    builder: (val) => (val.selectedIndex == 0)
+                        ? _getText(context, 'acasa')
+                        : (val.selectedIndex == 1)
+                            ? _getText(context, 'activitati')
+                            : (val.selectedIndex == 2)
+                                ? _getText(context, 'produse')
+                                : _getText(context, 'despre')),
               ),
           ],
         ),
@@ -188,5 +165,23 @@ class _HeaderState extends State<Header> {
         ],
       ),
     );
+  }
+
+  Widget _getText(BuildContext context, String textID) {
+    return StreamBuilder<DocumentSnapshot>(
+        stream: FirebaseFirestore.instance
+            .collection('header')
+            .doc(textID)
+            .snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return new CircularProgressIndicator();
+          }
+          var titlu = snapshot.data!.get('titlu');
+          var prezentare = snapshot.data!.get('prezentare');
+          var cuButon = snapshot.data!.get('cuButon');
+
+          return MainHeaderTextFirstPage(titlu, prezentare, cuButon);
+        });
   }
 }

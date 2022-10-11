@@ -13,12 +13,12 @@ class InfoCard extends StatefulWidget {
       this.isShareable);
 
   final String titlu;
-  final String imageUrl;
-  final String text;
+  final String? imageUrl;
+  final String? text;
   final bool isExpandable;
   final int nonExpandedMaxLines;
-  final String categorie;
-  final String subtitlu;
+  final String? categorie;
+  final String? subtitlu;
   final bool isShareable;
 
   @override
@@ -46,7 +46,7 @@ class _InfoCardState extends State<InfoCard> {
                       fit: BoxFit.fitWidth,
                       alignment: FractionalOffset.center,
                       image: new NetworkImage(
-                        widget.imageUrl,
+                        widget.imageUrl!,
                       ),
                     )),
               ),
@@ -65,7 +65,7 @@ class _InfoCardState extends State<InfoCard> {
                   children: [
                     if (widget.categorie != null)
                       Text(
-                        widget.categorie.toUpperCase(),
+                        widget.categorie!.toUpperCase(),
                         style: TextStyle(
                             color: piersica,
                             fontSize: 12,
@@ -76,7 +76,7 @@ class _InfoCardState extends State<InfoCard> {
                     ),
                     if (widget.subtitlu != null)
                       Text(
-                        widget.subtitlu,
+                        widget.subtitlu!,
                         style: Theme.of(context).textTheme.caption,
                       ),
                   ],
@@ -93,7 +93,7 @@ class _InfoCardState extends State<InfoCard> {
                   ),
                 ),
                 Text(
-                  widget.text,
+                  widget.text!,
                   style: TextStyle(color: negru, height: 1.5),
                   maxLines:
                       (isReadMore == false) ? widget.nonExpandedMaxLines : 200,

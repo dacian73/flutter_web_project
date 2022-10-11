@@ -10,7 +10,7 @@ import '../general_widgets/recent_posts.dart';
 
 class Postari extends StatelessWidget {
   const Postari({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

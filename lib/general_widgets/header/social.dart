@@ -7,7 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class Social extends StatefulWidget {
   const Social({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
