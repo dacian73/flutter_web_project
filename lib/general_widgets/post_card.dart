@@ -48,6 +48,32 @@ class PostCard extends StatelessWidget {
               children: [
                 Row(
                   children: [
+                    if (data != null)
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        width: 80,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            )),
+                        child: Column(
+                          children: [
+                            Text(
+                              data.substring(0, 2),
+                              style: TextStyle(fontSize: 28, letterSpacing: 6),
+                            ),
+                            Divider(
+                              thickness: 2,
+                              height: 8,
+                            ),
+                            Text(
+                              data.substring(3, 12),
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ],
+                        ),
+                      ),
                     if (categorie != null)
                       Text(
                         categorie.toUpperCase(),
@@ -55,14 +81,6 @@ class PostCard extends StatelessWidget {
                             color: negru,
                             fontSize: 12,
                             fontWeight: FontWeight.bold),
-                      ),
-                    SizedBox(
-                      width: largePadding,
-                    ),
-                    if (data != null)
-                      Text(
-                        data,
-                        style: Theme.of(context).textTheme.caption,
                       ),
                   ],
                 ),

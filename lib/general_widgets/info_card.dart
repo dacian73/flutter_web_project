@@ -55,8 +55,8 @@ class _InfoCardState extends State<InfoCard> {
             padding: EdgeInsets.all(largePadding),
             decoration: BoxDecoration(
                 color: albastru_cer,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(10),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
                 )),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

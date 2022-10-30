@@ -36,22 +36,22 @@ class Postari extends StatelessWidget {
             ),
           ),
         ),
-        if (!Responsive.isMobile(context))
-          SizedBox(
-            width: largePadding,
-          ),
-        if (!Responsive.isMobile(context))
-          Expanded(
-            child: Column(
-              children: [
-                Search(),
-                SizedBox(height: largePadding),
-                Categories(),
-                SizedBox(height: largePadding),
-                RecentPosts(),
-              ],
-            ),
-          ),
+        // if (!Responsive.isMobile(context))
+        //   SizedBox(
+        //     width: largePadding,
+        //   ),
+        // if (!Responsive.isMobile(context))
+        //   Expanded(
+        //     child: Column(
+        //       children: [
+        //         Search(),
+        //         SizedBox(height: largePadding),
+        //         Categories(),
+        //         SizedBox(height: largePadding),
+        //         RecentPosts(),
+        //       ],
+        //     ),
+        //   ),
       ],
     );
   }
