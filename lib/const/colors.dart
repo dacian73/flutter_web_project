@@ -12,7 +12,7 @@ const roz = Color.fromRGBO(245, 194, 231, 1);
 const albastru_cer = Color.fromARGB(168, 225, 235, 245);
 const turcoaz = Color.fromRGBO(50, 191, 191, 1);
 const piersica = Color.fromRGBO(248, 189, 150, 1);
-const galben = Color.fromARGB(236, 237, 214, 71);
+const galben = Color.fromARGB(235, 252, 246, 206);
 const maro = Color.fromRGBO(190, 128, 92, 1);
 
 //temporary hardcoded texts

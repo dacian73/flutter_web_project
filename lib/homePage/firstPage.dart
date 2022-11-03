@@ -87,6 +87,7 @@ class _FirstPageState extends State<FirstPage> {
                             : prezentareAsociatie,
                         style: TextStyle(color: negru, height: 1.5),
                         maxLines: (isReadMoreDespreNoi == false) ? 3 : 200,
+                        overflow: TextOverflow.ellipsis,
                       ),
                       SizedBox(
                         height: largePadding,
@@ -173,6 +174,7 @@ class _FirstPageState extends State<FirstPage> {
                         produseDescriere,
                         style: TextStyle(color: negru, height: 1.5),
                         maxLines: (isReadMoreProduse == false) ? 3 : 100,
+                        overflow: TextOverflow.ellipsis,
                       ),
                       SizedBox(
                         height: largePadding,
@@ -224,6 +226,7 @@ class _FirstPageState extends State<FirstPage> {
                         produseDescriere,
                         style: TextStyle(color: negru, height: 1.5),
                         maxLines: (isReadMoreServicii == false) ? 3 : 100,
+                        overflow: TextOverflow.ellipsis,
                       ),
                       SizedBox(
                         height: largePadding,

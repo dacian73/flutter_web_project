@@ -1,6 +1,11 @@
 import 'package:derzelas/const/colors.dart';
+import 'package:derzelas/general_widgets/databox.dart';
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
+
+import 'package:google_fonts/google_fonts.dart';
+
+import '../logic/responsive.dart';
 
 class PostCard extends StatelessWidget {
   const PostCard(this.titlu, this.imageUrl, this.text, this.link,
@@ -19,23 +24,75 @@ class PostCard extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: largePadding),
       child: Column(
         children: [
-          if (imageUrl != null)
-            new AspectRatio(
-              aspectRatio: 3 / 1,
-              child: new Container(
-                decoration: new BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                    ),
-                    image: new DecorationImage(
-                      fit: BoxFit.fitWidth,
-                      alignment: FractionalOffset.center,
-                      image: new NetworkImage(
-                        imageUrl,
+          if (Responsive.isDesktop(context))
+            Row(
+              children: [
+                Container(
+                  height: 200,
+                  width: 400,
+                  decoration: new BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
                       ),
-                    )),
-              ),
+                      image: new DecorationImage(
+                        fit: BoxFit.cover,
+                        alignment: FractionalOffset.center,
+                        image: new NetworkImage(
+                          imageUrl,
+                        ),
+                      )),
+                ),
+                Expanded(
+                  child: Container(
+                    height: 200,
+                    padding: EdgeInsets.all(largePadding),
+                    decoration: BoxDecoration(
+                        color: albastru_cer,
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(10),
+                        )),
+                    child: Row(children: [
+                      if (data != null)
+                        DataBox(data.substring(0, 2), data.substring(3, 12)),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: smallPadding, horizontal: largePadding),
+                        child: Text(
+                          titlu,
+                          style: GoogleFonts.cinzel(
+                            textStyle: TextStyle(
+                              fontSize: 34,
+                              height: 1.2,
+                              letterSpacing: 2,
+                              color: Colors.grey[900],
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ]),
+                  ),
+                ),
+              ],
             ),
+          if (!Responsive.isDesktop(context))
+            if (imageUrl != null)
+              new AspectRatio(
+                aspectRatio: 3 / 1,
+                child: new Container(
+                  decoration: new BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                      ),
+                      image: new DecorationImage(
+                        fit: BoxFit.fitWidth,
+                        alignment: FractionalOffset.center,
+                        image: new NetworkImage(
+                          imageUrl,
+                        ),
+                      )),
+                ),
+              ),
           Container(
             padding: EdgeInsets.all(largePadding),
             decoration: BoxDecoration(
@@ -46,59 +103,43 @@ class PostCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    if (data != null)
-                      Container(
-                        margin: EdgeInsets.all(8),
-                        width: 80,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
-                            )),
-                        child: Column(
-                          children: [
-                            Text(
-                              data.substring(0, 2),
-                              style: TextStyle(fontSize: 28, letterSpacing: 6),
+                if (!Responsive.isDesktop(context))
+                  Row(
+                    children: [
+                      if (data != null)
+                        DataBox(data.substring(0, 2), data.substring(3, 12)),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: smallPadding, horizontal: largePadding),
+                        child: Text(
+                          titlu,
+                          style: GoogleFonts.cinzel(
+                            textStyle: TextStyle(
+                              fontSize: 34,
+                              height: 1.2,
+                              letterSpacing: 2,
+                              color: Colors.grey[900],
+                              fontWeight: FontWeight.bold,
                             ),
-                            Divider(
-                              thickness: 2,
-                              height: 8,
-                            ),
-                            Text(
-                              data.substring(3, 12),
-                              style: TextStyle(fontSize: 16),
-                            ),
-                          ],
+                          ),
                         ),
                       ),
-                    if (categorie != null)
-                      Text(
-                        categorie.toUpperCase(),
-                        style: TextStyle(
-                            color: negru,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold),
-                      ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: smallPadding),
-                  child: Text(
-                    titlu,
-                    style: TextStyle(
-                        color: negru,
-                        fontSize: 32,
-                        height: 1.2,
-                        fontWeight: FontWeight.w500),
+                    ],
                   ),
-                ),
-                Text(
-                  text,
-                  style: TextStyle(color: negru, height: 1.5),
-                  maxLines: 4,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    text,
+                    style: GoogleFonts.playfairDisplay(
+                      textStyle: TextStyle(
+                        fontSize: 18,
+                        color: Colors.grey[700],
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                    maxLines: 4,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
                 SizedBox(
                   height: largePadding,
